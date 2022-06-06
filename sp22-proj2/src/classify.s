@@ -161,8 +161,6 @@ classify:
 	beqz a2, print
 	j done
 
-	ret
-
 print:
 	mv a0, s11
 	jal print_int
@@ -221,6 +219,10 @@ done:
 	lw s11, 64(sp)
 	lw ra, 68(sp)
 	addi sp, sp, 72
+
+	mv a0, s11
+	
+	ret
 
 classify_error:
 	li a0, 31
